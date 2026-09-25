@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "instrumental-escape"
+version = "0.1.0"
+description = "Instrumental Hacking Behavior Detector: a pre-deployment behavioral test harness that detects when goal-directed agents instrumentally discover exploitation (SQLi / path traversal / command injection / endpoint enumeration) when their authorized data path is blocked. NOT a prompt-injection detector."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.11"
+authors = [{ name = "ProtoGensis" }]
+dependencies = [
+    "pyyaml>=6.0,<7",
+]
+
+[project.optional-dependencies]
+# LLM dispatch is OPTIONAL. The classifier and gate are fully deterministic and
+# do not import litellm. Installing this extra only enables live model runners.
+llm = ["litellm>=1.60,<2"]
+dev = ["pytest>=8,<10"]
+
+[project.scripts]
+instrumental-escape = "instrumental_escape.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["instrumental_escape*"]
+
+[tool.setuptools.package-data]
+instrumental_escape = []
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
