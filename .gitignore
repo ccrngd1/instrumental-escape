@@ -1,0 +1,21 @@
+# --- added at split from ccrngd1/ProtoGensis (was covered by the monorepo root .gitignore) ---
+.mastercontrol/
+.claude-session
+.claude/settings.local.json
+**/.push_*.py
+*.log
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+node_modules/
+build/
+dist/
+.env
+.env.*
+*.pem
+.DS_Store
